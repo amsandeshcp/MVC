@@ -21,16 +21,17 @@
                 </button>
                 @Html.ActionLink("CRUD Logo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            @*<div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                </div>*@
+
             <div class="nav">
                 <ul class="nav navbar-nav">
-                    <li> <a class="active" href="#home">Home</a>        </li>
-                    <li> <a href="#Set Up Payment">Set Up Payment</a>   </li>
-                    <li> <a href="Do More">Do More</a>                  </li>
+                    <li> <a class="active" href="~/Home/Index">Home</a>        </li>
+                    <li>@Html.ActionLink("Set Up Payment", "Set_Up_Payment", "Home")</li>
+                    <li> <a href="~/home/domore">Do More</a>                  </li>
                     <li> <a href="#Build With Us">Build With Us</a>     </li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav" style="float: Right !important;">
+                    <li>@Html.ActionLink("SignIn", "Index", "Login", new { area = "Admin" })</li>
                 </ul>
             </div>
         </div>

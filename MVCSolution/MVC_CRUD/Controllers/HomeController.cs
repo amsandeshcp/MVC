@@ -13,5 +13,18 @@ namespace MVC_CRUD.Controllers
         {
             return View();
         }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult Set_Up_Payment()
+        {
+            return View();
+        }
+        public ActionResult DoMore()
+        {
+            return View();
+        }
     }
 }
