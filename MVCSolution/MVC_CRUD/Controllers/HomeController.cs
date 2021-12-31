@@ -26,5 +26,9 @@ namespace MVC_CRUD.Controllers
         {
             return View();
         }
+        public ActionResult Waste()
+        {
+            return View();
+        }
     }
 }
