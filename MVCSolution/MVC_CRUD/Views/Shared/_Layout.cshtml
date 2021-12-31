@@ -31,7 +31,8 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 <ul class="nav navbar-nav" style="float: Right !important;">
-                    <li>@Html.ActionLink("SignIn", "Index", "Login", new { area = "Admin" })</li>
+                    @*<li> <a class="active" href="~/Admin/Login">LOGIN</a>        </li>*@
+                    <li>@Html.ActionLink("SignIn", "Index", "Login", new { area = "ADMIN" }, new { @class = "navbar-brand" })</li>
                 </ul>
             </div>
         </div>
