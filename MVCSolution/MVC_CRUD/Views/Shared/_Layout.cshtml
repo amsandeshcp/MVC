@@ -8,25 +8,6 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <style>
-
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-        }
-
-            .topnav a {
-                float: left;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-
-                .topnav a.active {
-                    background-color: #04AA6D;
-                    color: white;
-                }
     </style>
 </head>
 <body>
@@ -40,8 +21,16 @@
                 </button>
                 @Html.ActionLink("CRUD Logo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            @*<div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>*@
+            <div class="nav">
                 <ul class="nav navbar-nav">
+                    <li> <a class="active" href="#home">Home</a>        </li>
+                    <li> <a href="#Set Up Payment">Set Up Payment</a>   </li>
+                    <li> <a href="Do More">Do More</a>                  </li>
+                    <li> <a href="#Build With Us">Build With Us</a>     </li>
                 </ul>
             </div>
         </div>
