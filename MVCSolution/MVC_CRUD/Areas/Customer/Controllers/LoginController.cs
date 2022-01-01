@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_CRUD.Areas.Customer.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,11 +10,35 @@ namespace MVC_CRUD.Areas.Customer.Controllers
     public class LoginController : Controller
     {
         // GET: Customer/Login
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(DTOLoginRequest dTOLoginRequest)
+        {
+            if (ModelState.IsValid)
+                var tempdetails = dTOLoginRequest;
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignUp(DTOCustomerDetailsRegRequest dTOCustomerDetailsRegRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var tempdetails = dTOCustomerDetailsRegRequest;
+            }
+            return View(dTOCustomerDetailsRegRequest);
+        }
         // GET: Customer/Login/Details/5
         public ActionResult Details(int id)
         {

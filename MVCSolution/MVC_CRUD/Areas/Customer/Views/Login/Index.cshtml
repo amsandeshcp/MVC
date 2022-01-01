@@ -1,8 +1,24 @@
-﻿
+﻿@model MVC_CRUD.Areas.Customer.Data.DTOLoginRequest
 @{
     ViewBag.Title = "Customer Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Customer Sign in </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Email_Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.EditorFor(model => model.Email_Mobile, new { htmlAttributes = new { @class = "form-control" } })
+    <br />
+
+    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Login" class="btn btn-default" />
+        </div>
+    </div>
+}
 
