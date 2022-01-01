@@ -20,7 +20,9 @@ namespace MVC_CRUD.Areas.Customer.Controllers
         public ActionResult Index(DTOLoginRequest dTOLoginRequest)
         {
             if (ModelState.IsValid)
+            {
                 var tempdetails = dTOLoginRequest;
+            }
             return View();
         }
 
