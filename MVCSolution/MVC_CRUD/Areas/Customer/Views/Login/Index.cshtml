@@ -1,6 +1,7 @@
 ﻿@using MVC_CRUD.Areas.Customer.Data
 @model MVC_CRUD.Areas.Customer.Data.DTOLoginRequest
 
+
 @{
     ViewBag.Title = "Customer Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,47 +9,91 @@
 
 <h2>Customer Sign in </h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    @Html.LabelFor(model => model.Email_Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.EditorFor(model => model.Email_Mobile, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Email_Mobile, "", new { @class = "text-danger" })
-    <br />
+        @Html.LabelFor(model => model.Email_Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Email_Mobile, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Email_Mobile, "", new { @class = "text-danger" })
+        <br />
 
-    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-    <br />
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Login" class="btn btn-default" />
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+
+            @{
+                var dataViewbag1 = ViewBag.ResponseMSG;
+                if (dataViewbag1 != null)
+                {
+                    <h3>ResponseMSG: @dataViewbag1</h3>
+                }
+            }
+            <br />
+            @{
+                var dataViewbag2 = ViewBag.ResponseMSG_ClassDetails;
+                if (dataViewbag2 != null)
+                {
+                    <h3>ResponseMSG_Code: @dataViewbag2.Code</h3>
+                }
+            }
+            <br />
+            @{
+                var dataViewData1 = (DTOLoginResponse)ViewData["ResponseMSG_ClassDetails_ViewData"];
+                if (dataViewData1 != null)
+                {
+                    <h3>ResponseMSG_Code_ViewData: @dataViewData1.Code</h3>
+                }
+            }
         </div>
+    }
+</div>
+<br />
 
-        @{
-            var dataViewbag1 = ViewBag.ResponseMSG;
-            if (dataViewbag1 != null)
-            {
-                <h3>ResponseMSG: @dataViewbag1</h3>
-            }
-        }
-        <br />
-        @{
-            var dataViewbag2 = ViewBag.ResponseMSG_ClassDetails;
-            if (dataViewbag2 != null)
-            {
-                <h3>ResponseMSG_Code: @dataViewbag2.Code</h3>
-            }
-        }
-        <br />
-        @{
-            var dataViewData1 = (DTOLoginResponse)ViewData["ResponseMSG_ClassDetails_ViewData"];
-            if (dataViewData1 != null)
-            {
-                <h3>ResponseMSG_Code_ViewData: @dataViewData1.Code</h3>
-            }
-        }
-    </div>
-}
+<div class="row">
+    @using (Html.BeginForm("SignUp", "Login", FormMethod.Post))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">Person Details</th>
+            </tr>
+            <tr>
+                <td>PersonId: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Email_Mobile)
+                </td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender: </td>
+                <td>
+                    @*@Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                        { new SelectListItem{Text="Male", Value="M"},
+                          new SelectListItem{Text="Female", Value="F"}}, "Please select")*@
+                </td>
+            </tr>
+            <tr>
+                <td>City: </td>
+                <td>
+                    @*@Html.TextBoxFor(m => m.City)*@
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Signup" /></td>
+            </tr>
+        </table>
+    }
+</div>
+
 
