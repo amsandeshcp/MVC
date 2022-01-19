@@ -32,6 +32,7 @@ namespace MVC_CRUD.Areas.Customer.Controllers
                 response.MSG = "Success";
 
                 ViewBag.ResponseMSG_ClassDetails = response;
+                ViewData["ResponseMSG_ClassDetails_ViewData"] = response;
                 ViewBag.ResponseMSG = "Success";
                 return View();
             }
@@ -39,6 +40,8 @@ namespace MVC_CRUD.Areas.Customer.Controllers
             response.MSG = "Error";
 
             ViewBag.ResponseMSG_ClassDetails = response;
+            ViewData["ResponseMSG_ClassDetails_ViewData"] = response;
+
             ViewBag.ResponseMSG = "Error";
             return View();
         }

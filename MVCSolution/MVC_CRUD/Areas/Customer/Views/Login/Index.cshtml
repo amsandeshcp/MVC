@@ -1,4 +1,6 @@
-﻿@model MVC_CRUD.Areas.Customer.Data.DTOLoginRequest
+﻿@using MVC_CRUD.Areas.Customer.Data
+@model MVC_CRUD.Areas.Customer.Data.DTOLoginRequest
+
 @{
     ViewBag.Title = "Customer Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,10 +38,17 @@
             var dataViewbag2 = ViewBag.ResponseMSG_ClassDetails;
             if (dataViewbag2 != null)
             {
-                <h3>ResponseMSG_Code: @dataViewbag2.MSG</h3>
+                <h3>ResponseMSG_Code: @dataViewbag2.Code</h3>
             }
         }
-        
+        <br />
+        @{
+            var dataViewData1 = (DTOLoginResponse)ViewData["ResponseMSG_ClassDetails_ViewData"];
+            if (dataViewData1 != null)
+            {
+                <h3>ResponseMSG_Code_ViewData: @dataViewData1.Code</h3>
+            }
+        }
     </div>
 }
 
