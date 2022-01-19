@@ -25,20 +25,21 @@
         </div>
 
         @{
-            var data = ViewBag.ResponseMSG;
-            if (data != null)
+            var dataViewbag1 = ViewBag.ResponseMSG;
+            if (dataViewbag1 != null)
             {
-                <h3>ResponseMSG: @data</h3>
+                <h3>ResponseMSG: @dataViewbag1</h3>
             }
         }
         <br />
         @{
-            var datamsg = ViewBag.ResponseMSG_ClassDetails;
-            if (datamsg != null)
+            var dataViewbag2 = ViewBag.ResponseMSG_ClassDetails;
+            if (dataViewbag2 != null)
             {
-                <h3>ResponseMSG_Code: @datamsg.Code</h3>
+                <h3>ResponseMSG_Code: @dataViewbag2.MSG</h3>
             }
         }
+        
     </div>
 }
 
