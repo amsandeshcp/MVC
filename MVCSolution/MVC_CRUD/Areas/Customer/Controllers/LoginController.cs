@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,10 +20,26 @@ namespace MVC_CRUD.Areas.Customer.Controllers
         [HttpPost]
         public ActionResult Index(DTOLoginRequest dTOLoginRequest)
         {
+            DTOLoginResponse response = new DTOLoginResponse
+            {
+                Data = dTOLoginRequest
+            };
             if (ModelState.IsValid)
             {
                 var tempdetails = dTOLoginRequest;
+
+                response.Code = HttpStatusCode.OK;
+                response.MSG = "Success";
+
+                ViewBag.ResponseMSG_ClassDetails = response;
+                ViewBag.ResponseMSG = "Success";
+                return View();
             }
+            response.Code = HttpStatusCode.BadRequest;
+            response.MSG = "Error";
+
+            ViewBag.ResponseMSG_ClassDetails = response;
+            ViewBag.ResponseMSG = "Error";
             return View();
         }
 
