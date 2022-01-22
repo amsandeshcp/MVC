@@ -18,7 +18,7 @@ namespace MVC_CRUD.Areas.Customer.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(DTOLoginRequest dTOLoginRequest)
+        public ActionResult Index(ClsAccountDTO dTOLoginRequest)
         {
             DTOLoginResponse response = new DTOLoginResponse
             {
@@ -26,7 +26,7 @@ namespace MVC_CRUD.Areas.Customer.Controllers
             };
             if (ModelState.IsValid)
             {
-                var tempdetails = dTOLoginRequest;
+                DTOLoginRequest tempdetails = dTOLoginRequest.LoginRequest;
 
                 response.Code = HttpStatusCode.OK;
                 response.MSG = "Success";
@@ -53,11 +53,11 @@ namespace MVC_CRUD.Areas.Customer.Controllers
         }
 
         [HttpPost]
-        public ActionResult SignUp(DTOCustomerDetailsRegRequest dTOCustomerDetailsRegRequest)
+        public ActionResult SignUp(ClsAccountDTO dTOCustomerDetailsRegRequest)
         {
             if (ModelState.IsValid)
             {
-                var tempdetails = dTOCustomerDetailsRegRequest;
+                var tempdetails = dTOCustomerDetailsRegRequest.SignUpRequest;
             }
             return View(dTOCustomerDetailsRegRequest);
         }
@@ -131,6 +131,18 @@ namespace MVC_CRUD.Areas.Customer.Controllers
             {
                 return View();
             }
+        }
+
+        //[HttpGet]
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgetPassward(ClsAccountForgetPasswordRequest clsAccountForgetPasswordRequest)
+        {
+            return View();
         }
     }
 }
