@@ -56,9 +56,17 @@
                 </div>
             }
             <hr />
-
             <div>
                 @Html.ActionLink("Forget password?", "ForgetPassword")
+                or
+
+
+                or
+                <button id="btnShowModal" type="button"
+                        class="btn btn-sm btn-default pull-left col-lg-11 button button4">
+                    Pop Up Forget Password
+                </button>
+
             </div>
         </div>
         <div class="col-md-6">
@@ -104,6 +112,69 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<div class="modal fade" tabindex="-1" id="loginModal"
+     data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    ×
+                </button>
+                <h4 class="modal-title">Forget Password</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input class="form-control" type="text"
+                               placeholder="Email /  Mobile" id="txtEmailMobile" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <label id="lbldisplay"  style="color: red;" />
+                <input id="btnSave" type="submit" name="Save" value="Save" />
+                <button type="submit" class="btn btn-primary button button4">Sign</button>
+                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                    Hide
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/CustomizeJS/AccountJS.js?ver=@DateTime.Now.Ticks.ToString()"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //----Test Code Begin
+        //var customerID = 23;
+        //var firstname = "John";
+
+        //$.ajax(
+        //    {
+        //        type: 'POST',
+        //        dataType: 'JSON',
+        //        url: rootDir +"Customer/Login/GetData",
+        //        data: { customerID: customerID, fname: firstname },
+        //        success:
+        //            function (response) {
+        //                // Generate HTML table.
+        //                convertJsonToHtmlTable(JSON.parse(response), $("#TableId"));
+        //            },
+        //        error:
+        //            function (response) {
+        //                alert("Error: " + response);
+        //            }
+        //    });
+        //----Test Code END
+    });
+
+</script>
 
 <br />
 

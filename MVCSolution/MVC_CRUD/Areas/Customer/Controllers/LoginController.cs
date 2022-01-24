@@ -1,6 +1,8 @@
 ﻿using MVC_CRUD.Areas.Customer.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -142,7 +144,33 @@ namespace MVC_CRUD.Areas.Customer.Controllers
         [HttpPost]
         public ActionResult ForgetPassward(ClsAccountForgetPasswordRequest clsAccountForgetPasswordRequest)
         {
-            return View();
+            //JsonResult result = new JsonResult();
+            //var data = clsAccountForgetPasswordRequest.Email_Mobile;
+            //result = this.Json(JsonConvert.SerializeObject(data), JsonRequestBehavior.AllowGet);
+            //return result;
+
+            var MsgStory = "Success";
+            return Json(new { status = MsgStory, MSG = "Success from Controller MSG" }, JsonRequestBehavior.AllowGet);
         }
+
+        #region TestCode
+        //public ActionResult GetData(int customerID, string fname = "")
+        //{
+        //    // Initialization.  
+        //    JsonResult result = new JsonResult();
+        //    DataTable data = new DataTable();
+
+        //    // Load Data.  
+
+        //    // Filter data with input query parameters.  
+
+        //    // Prepare Ajax JSON Data Result.  
+        //    result = this.Json(JsonConvert.SerializeObject(data), JsonRequestBehavior.AllowGet);
+
+        //    // Return info.  
+        //    return result;
+        //}
+        #endregion
+
     }
 }
